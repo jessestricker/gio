@@ -14,5 +14,6 @@ target_include_directories(gio PUBLIC ${PROJECT_BINARY_DIR})
 
 # test
 add_executable(gio-test test/catch/main.cpp
-        test/config.cpp)
+        test/config.cpp
+        test/span.cpp)
 target_link_libraries(gio-test gio)
