@@ -11,3 +11,8 @@ configure_file(gio/config.hpp.in gio/config.hpp)
 add_library(gio gio/gio.cpp)
 target_include_directories(gio PUBLIC ${PROJECT_SOURCE_DIR})
 target_include_directories(gio PUBLIC ${PROJECT_BINARY_DIR})
+
+# test
+add_executable(gio-test test/catch/main.cpp
+        test/config.cpp)
+target_link_libraries(gio-test gio)
