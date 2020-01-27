@@ -1,0 +1,12 @@
+#ifndef GIO_CONFIG_HPP
+#define GIO_CONFIG_HPP
+
+#include <string_view>
+
+namespace gio {
+  inline constexpr std::string_view version_major = "@PROJECT_VERSION_MAJOR@";
+  inline constexpr std::string_view version_minor = "@PROJECT_VERSION_MINOR@";
+  inline constexpr std::string_view version_patch = "@PROJECT_VERSION_PATCH@";
+}
+
+#endif //GIO_CONFIG_HPP
