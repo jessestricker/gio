@@ -1,12 +1,23 @@
 #ifndef GIO_CONFIG_HPP
 #define GIO_CONFIG_HPP
 
+#include <iosfwd>
 #include <string_view>
 
 namespace gio {
-  inline constexpr std::string_view version_major = "@PROJECT_VERSION_MAJOR@";
-  inline constexpr std::string_view version_minor = "@PROJECT_VERSION_MINOR@";
-  inline constexpr std::string_view version_patch = "@PROJECT_VERSION_PATCH@";
+  enum class Endian : bool {};
+
+  inline constexpr auto LittleEndian = Endian{false};
+  inline constexpr auto BigEndian = Endian{true};
+
+  std::ostream& operator<<(std::ostream& os, Endian endian);
+
+  // clang-format off
+  inline constexpr auto version_major = std::string_view{"@GIO_VERSION_MAJOR@"};
+  inline constexpr auto version_minor = std::string_view{"@GIO_VERSION_MINOR@"};
+  inline constexpr auto version_patch = std::string_view{"@GIO_VERSION_PATCH@"};
+  inline constexpr auto NativeEndian = @GIO_NATIVE_ENDIAN@;
+  // clang-format on
 }
 
 #endif //GIO_CONFIG_HPP
