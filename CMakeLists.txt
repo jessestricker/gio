@@ -31,5 +31,5 @@ target_include_directories(gio
 add_executable(gio-test
         test/catch/main.cpp
         test/config.cpp
-        test/span.cpp)
+        test/span.cpp test/bytes.cpp)
 target_link_libraries(gio-test gio)
