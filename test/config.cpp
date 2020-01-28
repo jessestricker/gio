@@ -1,6 +1,7 @@
+#include "gio/config.hpp"
+
 #include <cstddef>
 #include <cstdint>
-#include <gio/config.hpp>
 
 #include "catch/catch.hpp"
 

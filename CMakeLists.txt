@@ -14,16 +14,22 @@ else ()
     set(GIO_NATIVE_ENDIAN LittleEndian)
 endif ()
 
-configure_file(gio/config.hpp.in gio/config.hpp @ONLY)
+configure_file(include/gio/config.hpp.in include/gio/config.hpp @ONLY)
 
 # library
-add_library(gio gio/gio.cpp
-        gio/config.cpp)
-target_include_directories(gio PUBLIC ${PROJECT_SOURCE_DIR})
-target_include_directories(gio PUBLIC ${PROJECT_BINARY_DIR})
+add_library(gio
+        src/config.cpp)
+
+target_include_directories(gio
+        PRIVATE include/gio
+        INTERFACE include)
+target_include_directories(gio
+        PRIVATE ${PROJECT_BINARY_DIR}/include/gio
+        INTERFACE ${PROJECT_BINARY_DIR}/include)
 
 # test
-add_executable(gio-test test/catch/main.cpp
+add_executable(gio-test
+        test/catch/main.cpp
         test/config.cpp
         test/span.cpp)
 target_link_libraries(gio-test gio)

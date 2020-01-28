@@ -1,6 +1,7 @@
+#include "gio/span.hpp"
+
 #include <algorithm>
 #include <array>
-#include <gio/span.hpp>
 
 #include "catch/catch.hpp"
 

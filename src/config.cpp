@@ -1,4 +1,5 @@
-#include <gio/config.hpp>
+#include "config.hpp"
+
 #include <ostream>
 
 namespace gio {
